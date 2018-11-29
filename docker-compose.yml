@@ -6,6 +6,6 @@ services:
         build:
             context: ./docker/golang
         volumes:
-            - .:/go/src/app
+            - .:/go/src
         environment:
-            GOPATH: /go/src/app
+            GOPATH: /go

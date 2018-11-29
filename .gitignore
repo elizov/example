@@ -4,3 +4,5 @@ vendor/
 
 /.env*
 !/.env.example
+
+Gopkg.lock
