@@ -1,0 +1,11 @@
+version: '3.5'
+services:
+
+    # Golang
+    golang:
+        build:
+            context: ./docker/golang
+        volumes:
+            - .:/go/src/app
+        environment:
+            GOPATH: /go/src/app
