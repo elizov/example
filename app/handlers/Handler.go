@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"fmt"
-	"log"
 	"net"
 	"net/http"
 
@@ -30,11 +29,13 @@ func Handler(resp http.ResponseWriter, req *http.Request) {
 		geoIP := geo.GetGeoIP()
 		ip, _, err := net.SplitHostPort(req.RemoteAddr)
 		if err != nil {
-			log.Fatal(err)
+			http.Error(resp, err.Error(), http.StatusInternalServerError)
+			return
 		}
 		location, err := geoIP.Country(net.ParseIP(ip))
 		if err != nil {
-			log.Fatal(err)
+			http.Error(resp, err.Error(), http.StatusInternalServerError)
+			return
 		}
 
 		fmt.Fprintf(resp, "ID:    %d\n", user.ID)
