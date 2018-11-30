@@ -35,3 +35,11 @@
 [[constraint]]
   name = "github.com/mholt/binding"
   version = "0.3.0"
+
+[[constraint]]
+  name = "github.com/mssola/user_agent"
+  version = "0.5.0"
+
+[[constraint]]
+  name = "github.com/oschwald/geoip2-golang"
+  version = "1.2.1"

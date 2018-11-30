@@ -1,4 +1,4 @@
-BIN_PATH = ./bin
+BIN_PATH = ../bin
 SRC_PATH = ./app
 DOCKER_RUN = docker-compose run --rm --user app golang
 
@@ -7,8 +7,8 @@ DOCKER_RUN = docker-compose run --rm --user app golang
 .PHONY: vendor
 
 # Run application
-run: build
-	docker-compose run --rm --user app --publish $(APP_PORT):$(APP_PORT) golang $(BIN_PATH)/$(APP_BIN)
+run:
+	docker-compose run --rm --user app --publish $(APP_PORT):$(APP_PORT) golang go run main.go
 
 # Make build
 build:
@@ -25,7 +25,6 @@ vendor:
 # Enter into golang container
 bash:
 	$(DOCKER_RUN) bash
-
 
 # Configure environment
 install:
