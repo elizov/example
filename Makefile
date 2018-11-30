@@ -1,5 +1,4 @@
 BIN_PATH = ../bin
-SRC_PATH = ./app
 DOCKER_RUN = docker-compose run --rm --user app golang
 
 -include .env
@@ -20,7 +19,7 @@ get:
 
 # Update vendor
 vendor:
-	$(DOCKER_RUN) /bin/sh -c 'cd $(SRC_PATH); dep ensure'
+	$(DOCKER_RUN) dep ensure
 
 # Enter into golang container
 bash:
